@@ -1,9 +1,9 @@
 'use strict';
 
 function solveEquation(a, b, c) {
-  let arr = [];
+  const arr = [];
   // Вычисляем дискриминант
-  let d = (b ** 2) - (4 * a * c);
+  const d = (b ** 2) - (4 * a * c);
   // Обрабатываем условия
   if (d == 0) {
     arr.push((-b) / 2 * a);
@@ -38,15 +38,15 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     return `Параметр "Срок ипотеки" содержит неправильное значение "${dateFinal}"`
   };
   // Тело кредита
-  let primaryLoan = amount - contribution;
+  const primaryLoan = amount - contribution;
   // Срок кредита в месяцах
-  let monthAmount = (date.getFullYear() - new Date().getFullYear()) * 12 - new Date().getMonth() + date.getMonth();
+  const monthAmount = (date.getFullYear() - new Date().getFullYear()) * 12 - new Date().getMonth() + date.getMonth();
   // Процентная ставка
-  let monthPercent = percent / 100 / 12 ;
+  const monthPercent = percent / 100 / 12 ;
   // Ежемесячных платёж
-  let monthlyPay = primaryLoan *(monthPercent + monthPercent /(((1 + monthPercent)**monthAmount)-1));
+  const monthlyPay = primaryLoan *(monthPercent + monthPercent /(((1 + monthPercent)**monthAmount)-1));
   // Общая сумма кредита
-  let totalAmount = monthlyPay * monthAmount;
+  const totalAmount = monthlyPay * monthAmount;
 
   return parseFloat(totalAmount.toFixed(2));
 };
