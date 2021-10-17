@@ -54,7 +54,7 @@ function makeWork(arrOfArr, func) {
 function worker2(arr) {
   let min = Infinity;
   let max = -Infinity;
-  let diff;
+  
   // Проверяем элементы массива
   for(let i = 0; i < arr.length; i++){
     if(arr[i] > max){
@@ -63,10 +63,7 @@ function worker2(arr) {
     if(arr[i] < min){
       min = arr[i];
     };
-    // Находим разницу
-    diff = max - min;
-
   };
 
-  return diff;
+  return max - min;
 }
