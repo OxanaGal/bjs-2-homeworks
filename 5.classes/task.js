@@ -118,7 +118,54 @@ class Student {
 
     constructor(name){
         this.name = name;
+        this.journal = {};
     }
 
+    addMark(mark, subjectName){
+
+        if(mark >=1 && mark <= 5){
+            if(this.journal[subjectName] === undefined){ 
+                this.journal[subjectName] = []; 
+            }
+            
+            this.journal[subjectName].push(mark);
+
+        //    return this.journal;
+        }
+        return `Ошибка, оценка должна быть числом от 1 до 5. Вы пытались поставить оценку ${mark} по предмету ${subjectName}.`
+    }
+
+        
+
+    getAverageBySubject(subjectName){
+
+        if(Object.keys(this.journal).includes(subjectName)){
+
+            const sumMarks = this.journal[subjectName].reduce((a, b) => a + b);
+  
+            return sumMarks / this.journal[subjectName].length;
+        }
+
+        return `Несуществующий предмет.`
+    }
+
+    getAverage(){
+        let sumAllMarks= 0;
+        let count = 0;
+
+        for(let subjectName of Object.keys(this.journal)) {
+            sumAllMarks += this.journal[subjectName].reduce((a, b) => a + b);
+            count += this.journal[subjectName].length;
+        }
+        
+        return sumAllMarks / count
+
+    }
+
+    exclude(reason){
+        delete this.subject;
+        delete this.marks;
+        this.excluded = reason;
+    }
     
 }
