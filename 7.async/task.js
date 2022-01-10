@@ -29,7 +29,7 @@ class AlarmClock{
 
     start(){
        const checkClock = alarm => {
-           if(alarm.time === new Date().toTimeString().substr(0, 5)){
+           if(alarm.time === getCurrentFormattedTime()){
                alarm.func();
            }
        }
